@@ -1,0 +1,140 @@
+<html>
+    <style>
+        #mydiv{
+            color: aqua;
+
+        }
+        #mydiv2{
+
+            color: brown;
+            background-color: aquamarine;
+            width: 30%;
+            border: 2px solid red;
+            border-radius: 10px;
+            
+        }
+        .myclass{
+            display: none
+        }
+        .myc{
+            display:block
+        }
+    </style>
+    <script>
+
+        arr=[{empid:101,ename:"shiva", salary:50000},{ empid:102,ename:"shirish", salary:60000},
+      {empid:103,ename:"shubham", salary:70000},{empid:104,ename:"Abhi", salary:80000},
+      {empid:105,ename:"Rupesh", salary:70000}
+    ]
+
+    function displaydata(empid){
+        var pos=arr.findIndex(a=>a.empid===empid)
+        var mydiv=document.getElementById("mydiv2");
+        mydiv.classList.add("myc");
+        mydiv.classList.remove("myclass");
+        str="";
+        if(pos!==-1){
+            str=`ID : ${arr[pos].empid}<br> Name : ${arr[pos].ename}<br> salary : ${arr[pos].salary}`
+            mydiv.innerHTML=str
+        }
+        else{
+            mydiv.innerHTML=" not found  "
+        }
+    }
+    function displaytable(a=arr){
+        str="<table border='2'><tr><th>Employee id</th><th>Employee name</th><th>Employee salary</th><th>display</th></tr>";
+
+            for(var ob of a){
+                str+=`<tr><td>${ob.empid}</td><td>${ob.ename}</td><td>${ob.salary}</td><td><button type='button' name='btn' id='btn' value='btn' onclick='displaydata(${ob.empid})'> display data </button > </td></tr>`;
+            }
+            str+="</table>"
+            document.getElementById("mydiv").innerHTML=str;
+
+    }
+    let clearform=()=>{
+        document.getElementById("empid").value=""
+        document.getElementById("ename").value=""
+        document.getElementById("salary").value=""
+
+    }
+    function add_emp(){
+        var empid=document.getElementById('empid').value
+        var ename=document.getElementById('ename').value
+        var salary=document.getElementById('salary').value
+
+        var  ob={empid:parseInt(empid),ename:ename, salary:parseFloat(salary)}
+        arr.push(ob);
+        displaytable();
+        clearform()
+        document.getElementById('empid').focus();
+
+    }
+
+    var delete_emp=()=>{
+        var empid=parseInt(document.getElementById('empid').value)
+        var pos=arr.findIndex(a=>a.empid===empid)
+        if(pos!=-1){
+            var ans=confirm( `${empid} do you want to delete ? [yes/No] `)
+            if(ans){
+                arr.splice(pos,1)
+            }
+            displaytable()
+        }
+        else{
+            alert(" not found ")
+        }
+
+        clearform()
+    }
+
+    function update_emp(){
+        var empid=parseInt(document.getElementById('empid').value)
+        var pos=arr.findIndex(a=>a.empid===empid)
+        if(pos!=-1){
+            var ans=confirm(`${empid} do you want to update emp ? [Y/N]`)
+            if(ans){
+                var newsalary=parseFloat(prompt(" enter the new salary"))
+                arr[pos].salary=newsalary
+
+                displaytable()
+            }
+        }
+        clearform()
+        document.getElementById('empid').focus()
+        
+    }
+    function filterdata(event){
+        console.log(event.key)
+        console.log(event.which)
+        if(event.which===13){
+            var searchtext=document.getElementById("search").value;
+            var arr2=arr.filter(a=>a.ename.includes(searchtext));
+            displaytable(arr2)
+
+        }
+
+    }
+
+
+    </script>
+    <body onload="displaytable()">
+        <form >
+            Employee empid :<input type="text" name="empid" id="empid"><br>
+            Employee ename :<input type="text" name="ename" id="ename"><br>
+            Employee salary :<input type="text" name="salary" id="salary"><br>
+
+            <button type="button" name="btn" id="btn" value="btn" onclick="add_emp()"> Add New Employee</button>
+
+            <button type="button" name="btn" id="btn" value="btn" onclick="delete_emp()"> Delete Employee</button>
+            <button type="button" name="btn" id="btn" value="btn" onclick="update_emp()"> Update Employee</button>
+        </form>
+        Search : <input type="text" id="search" name="search" onkeydown="filterdata(event)">
+
+        <div id="mydiv">
+
+        </div>
+        <div id="mydiv2" class="myclass">
+
+        </div>
+    </body>
+</html>
