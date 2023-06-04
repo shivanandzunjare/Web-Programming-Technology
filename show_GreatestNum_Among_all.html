@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script>
+
+            
+            function greaterfromall(){
+                var a=parseInt(document.getElementById('n1').value);
+                var b=parseInt(document.getElementById('n2').value);
+                var c=parseInt(document.getElementById('n3').value);
+
+                if(a>b){
+
+                    if(a>c){
+                        document.getElementById("result").value=a;
+                    }
+                    else{
+                        document.getElementById("result").value=c;
+                    }
+                }
+                else
+                {
+
+                    if(b>c){
+                        document.getElementById("result").value=b;
+                    }
+                    else{
+                        document.getElementById("result").value=c;
+                    }
+                }               
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <form name="frm">
+            Number 1:<input type:"text" name="num1" id="n1"><br>
+            Number 2:<input type:"text" name="num2" id="n2"><br>
+            Number 3:<input type:"text" name="num3" id="n3"><br>
+
+            result : <input type="text" name="result" id="result" disabled><br>
+            <button type="button" name="grter" id="grter" value="grter" onclick="greaterfromall()"> Greatest number</button>
+        </form>
+
+        <div id="mydiv">
+
+        </div>
+
+    </body>
+
+</html>

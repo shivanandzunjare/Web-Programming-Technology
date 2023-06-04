@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script>
+           function  getmsg(n1,m1){
+            var a=parseInt(document.getElementById('n1').value);
+            while( a > 0){
+                document.getElementById("mydiv").innerHTML +=m1.value + "<br>";
+                a--;
+            }
+           }
+
+        </script>
+
+    </head>
+    <body>
+        <form name="frm">
+            Number 1:<input type="text" name="n1" id="n1" ><br>
+            Message : <input type="text" name="msg" id="m1"><br>
+            <button type="button" name="btn" id="btn" value="btn" onclick="getmsg('n1',m1)"> print message</button>
+        </form>
+
+        <div id="mydiv">
+
+        </div>
+
+    </body>
+</html>
