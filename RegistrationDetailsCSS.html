@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: rgb(60,112,152);
+            }
+            .my{
+                text-align-last: right;
+            }
+            tr{
+                color: aliceblue;
+            }
+            legend{
+                color:aliceblue;
+            }
+            .center{
+                margin-left: auto;
+                margin-right: auto;
+            }
+            fieldset{
+                border-color: white;
+                margin:10%;
+                margin-left: auto;
+                margin-right: auto;
+                width:fit-content;
+            }
+        </style>
+
+    </head>
+    <body background="skyblue" >
+        <fieldset >
+            <legend>Registration Details</legend>
+        <table class="center" cellspacing="10px">
+            <tr>
+                <td><label>University :</label></td>
+            <td><input type="text" name="un" id="un" ></td><br>
+            </tr>
+
+            <tr>
+
+                <td><label>Institute :</label></td>
+            <td><input type="text" name="in" id="in"></td><br>
+            </tr>
+
+            <tr>
+                <td><label>Branch :</label></td>
+            <td><select name="Branch" id="Branch">
+                <option value="test" > select One</option>
+                <option value="Mech">Mech</option>
+                <option value="CSE"> CSE</option>
+                <option value="Civil"> Civil</option>
+                <option value="Elect"> Elect</option>
+            </select></td>
+            </tr>
+
+            <tr>
+                <td><label> Degree :</label></td>
+                <td>
+                    <select name="degree" id="degree">
+                        <option value="test" > select one </option>
+                        <option value="B.TECH"> B.TECH </option>
+                        <option value="B.E"> B.E</option>
+                        <option value="MCA"> MCA </option>
+                        <option value=""> B.E</option>
+                    </select>
+                </td>
+            <td>
+                <input type="radio" name="pr" id="pr"  ><label>Pursing</label> 
+                <input type="radio" name="pr" id="pr" > <label>Completed</label>
+            </td><br>
+            
+            </tr>
+
+            <tr>
+                <td><label><u></u>Average CPI</u></label></td>
+                <td>
+                    <input type="number" name="av" id="av" min="0" max="10"><label> Upto</label>
+                    <input type="number" name="sem" min="1" max="8" >
+                </td>
+                <td><label> th Semester</label></td><br>
+            </tr>
+
+            <tr>
+                <td><label>Experience</label></td>
+             <td><input type="br" name="br" id="br" min="2" max="10" > </td>
+            
+            </tr>
+
+            <tr>
+                <td><label>Your Website Or Blog  </label></td>
+             <td><input type="text" placeholder="http//" > </td><br>
+            
+            </tr>
+            
+        </table>
+        </fieldset>
+    </body>
+
+</html>
